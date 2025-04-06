@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Literasi Akademik Berbantuan AI</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo-container {
+            width: 220px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+        }
+        
+        .logo {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .header-text {
+            flex: 1;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.2em;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: var(--secondary);
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            margin-top: 10px;
+            font-weight: normal;
+        }
+        
+        .section {
+            padding: 20px 30px;
+        }
+        
+        .highlight-box {
+            background-color: var(--light);
+            border-left: 5px solid var(--secondary);
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .benefit-item {
+            background-color: var(--light);
+            padding: 15px;
+            border-radius: 5px;
+            position: relative;
+            padding-left: 40px;
+        }
+        
+        .benefit-item:before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 15px;
+            font-size: 1.2em;
+        }
+        
+        .schedule {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .schedule th, .schedule td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .schedule th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .schedule tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .usp {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .facilitator-box {
+            background-color: var(--light);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .facilitator-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        
+        .facilitator-info {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .usp-item {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--light);
+            border-radius: 5px;
+        }
+        
+        .usp-icon {
+            font-size: 2em;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .practical-info {
+            background-color: var(--light);
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .practical-info ul {
+            margin-bottom: 20px;
+        }
+        
+        .practical-info li {
+            margin-bottom: 10px;
+        }
+        
+        .practical-info a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .practical-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .cta {
+            background-color: var(--accent);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 30px;
+            border-radius: 0 0 10px 10px;
+        }
+        
+        .cta h2 {
+            color: white;
+            border-bottom: none;
+        }
+        
+        .contact-info {
+            font-size: 1.2em;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+            }
+            
+            .logo-container {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .header-text {
+                text-align: center;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .benefits, .usp {
+                grid-template-columns: 1fr;
+            }
+            
+            .facilitator-box {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .facilitator-img {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="02-logo.png" alt="Workshop Logo" class="logo">
+            </div>
+            <div class="header-text">
+                <h1>WORKSHOP ONLINE<br>LITERASI AKADEMIK BERBANTUAN AI</h1>
+                <div class="subtitle">Tingkatkan Pemahaman Teks Teoretis dengan Teknologi Kecerdasan Buatan</div>
+            </div>
+        </header>
+        
+        <div class="section">
+            <h2>📚 MENGAPA WORKSHOP INI PENTING?</h2>
+            <p>Mahasiswa pascasarjana Studi Islam dan Ilmu Sosial sering menghadapi:</p>
+            <ul>
+                <li>Teks teoretis yang kompleks dan sulit dipahami</li>
+                <li>Beban bacaan hingga ratusan halaman per semester</li>
+                <li>Kesulitan menghubungkan berbagai konsep dan teori</li>
+                <li>Terkendala membuat sintesis antargagasan untuk kebutuhan tugas dan penelitian</li>
+            </ul>
+        </div>
+        
+        <div class="section highlight-box">
+            <h3>Transformasi Cara Membaca dan Memahami Teks di Era AI</h3>
+            <p>Di era AI, membaca teks akademik tidak harus selalu dimulai dari halaman pertama hingga terakhir. Workshop ini akan membekali Anda dengan teknik pemetaan konsep dan pertanyaan bertingkat untuk memahami teks kompleks dengan bantuan kecerdasan buatan. Dengan begitu, Anda bisa lebih efisien dan efektif dalam studi Anda.</p>
+            <p>Konsep workshop secara lengkap dapat dibaca <a href="07-konsep-workshop.html" style="color: var(--secondary); font-weight: bold;">di sini</a>.</p>
+        </div>
+        
+        <div class="section">
+            <h2>🎯 YANG AKAN ANDA DAPATKAN</h2>
+            <div class="benefits">
+                <div class="benefit-item">
+                    <strong>Hemat Waktu</strong> - Efisiensi waktu membaca dengan teknik pemindaian AI sambil tetap memahami inti teks akademis.
+                </div>
+                <div class="benefit-item">
+                    <strong>Pemahaman Mendalam</strong> - Kemampuan mengidentifikasi konsep dan gagasan kunci dan struktur argumentasi dalam teks teoritis.
+                </div>
+                <div class="benefit-item">
+                    <strong>Keterampilan Konkret</strong> - Kemampuan bertanya dengan sistematis dan bertingkat (<i>prompting</i>) untuk mengekstrak, menganalisis, dan mensintesiskan teks akademis.
+                </div>
+                <div class="benefit-item">
+                    <strong>Protokol Personal</strong> - Strategi membaca akademis yang disesuaikan dengan kebutuhan penelitian.
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🗓️ JADWAL & MATERI GELOMBANG #1 (21-29 April 2025)</h2>
+            <p><strong> Workshop berlangsung dari 19:00-21:00 WIB</strong></p>
+            <table class="schedule">
+                <tr>
+                    <th>Pertemuan</th>
+                    <th>Hari/Tanggal</th>
+                    <th>Materi</th>
+                </tr>
+                <tr>
+                    <td>Ke-1</td>
+                    <td>Senin, 21 April</td>
+                    <td><strong>Inisiasi dan Persiapan</strong> - Pengenalan metode + Pemetaan kebutuhan individual</td>
+                </tr>
+                <tr>
+                    <td>Ke-2</td>
+                    <td>Rabu, 23 April</td>
+                    <td><strong>Pemahaman Struktur Teks</strong> - Teknik prompt AI + Praktik pemetaan teks</td>
+                </tr>
+                <tr>
+                    <td>Ke-3</td>
+                    <td>Jumat, 25 April</td>
+                    <td><strong>Pembacaan Mendalam</strong> - Eksplorasi konsep + Analisis perbandingan perspektif terhadap Teks</td>
+                </tr>
+                <tr>
+                    <td>Ke-4</td>
+                    <td>Minggu, 27 April</td>
+                    <td><strong>Sintesis Konseptual</strong> - Integrasi pemahaman + Presentasi sintesis awal</td>
+                </tr>
+                <tr>
+                    <td>Ke-5</td>
+                    <td>Selasa, 29 April</td>
+                    <td><strong>Evaluasi dan Rencana</strong> - Refleksi pendalaman + Pengembangan protokol personal</td>
+                </tr>
+            </table>
+            
+            <p>Materi lengkap workshop dapat dilihat <a href="03-kegiatan-workshop.html" style="color: var(--secondary); font-weight: bold;">di sini</a></p>
+        </div>
+        
+        <div class="section">
+            <h2>💡 APA YANG MEMBEDAKAN WORKSHOP INI?</h2>
+            
+            <div class="facilitator-box">
+                <img src="inyiak.JPG" alt="Mentor Berpengalaman" class="facilitator-img">
+                <div class="facilitator-info">
+                    <h3>Fasilitator Berpengalaman</h3>
+                    <p>Inyiak Ridwan Muzir adalah peneliti budaya digital Ponpes Kaliopak Yogyakarta dan penerjemah/editor buku-buku ilmu sosial dan filsafat.</p>
+                    <p><a href="02-profile-mentor.html" style="color: var(--secondary); font-weight: bold;">Lihat profil lengkap di sini</a></p>
+                </div>
+            </div>
+            
+            <div class="usp">
+                <div class="usp-item">
+                    <strong>Pembelajaran Kolaboratif</strong>
+                    <p>Format kelompok belajar dengan pendampingan mentor</p>
+                </div>
+                <div class="usp-item">
+                    <strong>Personalisasi</strong>
+                    <p>Bekerja dengan teks akademis pilihan Anda sendiri</p>
+                </div>
+                <div class="usp-item">
+                    <strong>Sesuai Dengan Kebutuhan</strong>
+                    <p>Peserta membahas teks sesuai dengan kebutuhan tugas/penelitian masing-masing</p>
+                </div>
+                <div class="usp-item">
+                    <strong>Pendekatan Praktis</strong>
+                    <p>Fokus pada teknik konkret pemanfaatan AI secara bijak, bukan hanya teori</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📋 INFORMASI PRAKTIS</h2>
+            <div class="practical-info">
+                <p><strong>Durasi:</strong> 5 pertemuan × 2 jam (total 10 jam)</p>
+                
+                <h3>Persyaratan:</h3>
+                <ul>
+                    <li>Mahasiswa pascasarjana/S1 tingkat akhir</li>
+                    <li>Mempersiapkan teks akademis dalam format PDF. <a href="05-seputar-teks-peserta.html">Penjelasan lengkap di sini</a></li>
+                    <li>Laptop dengan koneksi internet</li>
+                    <li>Memiliki akun Zoom</li>
+                    <li>Memiliki akun AI generatif (Chat GPT, Claude, DeepSeek, Grok, Gemini) diutamakan versi Pro. <a href="06-perbandingan-ai-akademis.html">Penjelasan lengkap di sini</a></li>
+                    <li>Rincian persyaratan secara lebih lengkap <a href="04-persyaratan-peserta.html">dapat dilihat di sini</a></li>
+
+                </ul>
+                
+                
+                
+                <p><strong>Biaya:</strong> Rp250.000 (Rp50.000/pertemuan)</p>
+                <p><strong>Kapasitas:</strong> Maksimal lima (5) peserta per Gelombang</p>
+            </div>
+        </div>
+        
+        <div class="cta">
+            <h1>BATAS PENDAFTARAN GELOMBANG #1</h1>
+             <h1>20 APRIL 2025</h1>
+             <div class="contact-info">Link Pendaftaran: <a href="https://forms.gle/LxZV6Yq4sGR4K34t6" target="_blank"style="color: white; text-decoration: underline;">Klik di sini untuk mendaftar</a></div>
+            <div class="contact-info">WhatsApp: 082225319973 (Inyiak) atau 081363070615 (Devi)</div>
+            <div class="contact-info">Rekening: 302201048845538 (Bank BRI a.n. Ridwan Muzir)</div>
+            <div class="contact-info">Email: inyiakrm@gmail.com</div>
+            
+        </div>
+    </div>
+</body>
+</html>

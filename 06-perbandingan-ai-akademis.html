@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perbandingan AI untuk Workshop Literasi Akademik</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.2em;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: var(--secondary);
+        }
+        
+        h4 {
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            margin-top: 10px;
+            font-weight: normal;
+        }
+        
+        .section {
+            padding: 20px 30px;
+        }
+        
+        .highlight-box {
+            background-color: var(--light);
+            border-left: 5px solid var(--secondary);
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .important-note {
+            background-color: #ffe6e6;
+            border-left: 5px solid var(--accent);
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .tip-box {
+            background-color: #e6ffe6;
+            border-left: 5px solid #2ecc71;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .ai-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .ai-card {
+            background-color: var(--light);
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .ai-card h3 {
+            text-align: center;
+            margin-top: 0;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .pros-cons {
+            margin: 15px 0;
+        }
+        
+        .pros, .cons {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .pros li {
+            list-style-type: none;
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+        }
+        
+        .pros li:before {
+            content: "✓";
+            color: #2ecc71;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .cons li {
+            list-style-type: none;
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+        }
+        
+        .cons li:before {
+            content: "✗";
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .comparison-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .rating {
+            display: flex;
+            margin: 5px 0;
+        }
+        
+        .rating-label {
+            width: 180px;
+            font-weight: bold;
+        }
+        
+        .rating-stars {
+            color: #f39c12;
+        }
+        
+        .recommendation {
+            background-color: #eafaf1;
+            border-left: 5px solid #2ecc71;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .back-to-home {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .back-to-home:hover {
+            background-color: var(--primary);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+                margin-top: 15px;
+            }
+            
+            .ai-comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div style="text-align: center; width: 100%;">
+                <h1>PANDUAN AI GENERATIF</h1>
+                <div class="subtitle">Untuk Workshop Literasi Akademik</div>
+            </div>
+        </header>
+        
+        <div class="section">
+            <h2>🤖 Mengapa Pemilihan AI Penting?</h2>
+            <p>Workshop Literasi Akademik Berbantuan AI ini dirancang untuk membantu Anda memanfaatkan teknologi kecerdasan buatan dalam memahami teks-teks akademis. Pemilihan jenis AI yang tepat sangat penting karena setiap AI generatif memiliki karakteristik, kekuatan, dan keterbatasan yang berbeda dalam menganalisis teks akademis.</p>
+            
+            <div class="highlight-box">
+                <h3>Catatan Penting</h3>
+                <p>Kami tidak mewajibkan penggunaan AI tertentu atau versi berbayar (Pro), tetapi berdasarkan penelitian dan pengalaman, beberapa AI memiliki kelebihan spesifik untuk kebutuhan literasi akademik. Halaman ini memberikan panduan untuk membantu Anda memilih AI yang paling sesuai dengan kebutuhan Anda dalam workshop.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📊 Kriteria Penilaian AI</h2>
+            <p>Dalam membandingkan berbagai AI generatif untuk kebutuhan literasi akademik, kami menggunakan enam kriteria utama:</p>
+            
+            <div class="comparison-table">
+                <table>
+                    <tr>
+                        <th>Kriteria</th>
+                        <th>Deskripsi</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Kemampuan Analisis Teks</strong></td>
+                        <td>Seberapa baik AI dalam mengekstrak, mengidentifikasi, dan memahami struktur teks akademis yang kompleks.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kedalaman Konseptual</strong></td>
+                        <td>Kemampuan AI untuk memahami dan menjelaskan konsep-konsep teoretis yang kompleks.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Akurasi Akademik</strong></td>
+                        <td>Tingkat keakuratan informasi yang diberikan dan kemampuan untuk menghindari halusinasi (menciptakan informasi yang tidak benar).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kemampuan Sintesis</strong></td>
+                        <td>Kemampuan AI untuk menghubungkan berbagai ide dan konsep menjadi kerangka pemahaman yang koheren.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Etika dan Bias</strong></td>
+                        <td>Sejauh mana AI menunjukkan transparansi dalam keterbatasan pengetahuan dan minimalisasi bias.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kemudahan Interaksi</strong></td>
+                        <td>Seberapa mudah AI merespons pertanyaan bertingkat dan mempertahankan konteks percakapan yang panjang.</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🔍 Perbandingan AI Generatif Utama</h2>
+            
+            <div class="ai-comparison">
+                <div class="ai-card">
+                    <h3>Claude (Anthropic)</h3>
+                    <div class="pros-cons">
+                        <h4>Kelebihan:</h4>
+                        <ul class="pros">
+                            <li>Fokus pada kejujuran dan keakuratan</li>
+                            <li>Sangat baik dalam analisis kritis</li>
+                            <li>Mampu mempertahankan konteks yang lebih panjang</li>
+                            <li>Lebih transparan dalam proses reasoning</li>
+                            <li>Lebih etis dalam memberikan informasi</li>
+                        </ul>
+                        
+                        <h4>Keterbatasan:</h4>
+                        <ul class="cons">
+                            <li>Kadang terlalu hati-hati dalam menjawab</li>
+                            <li>Kurang fleksibel dalam format output</li>
+                            <li>Proses berpikir lebih lambat dibanding ChatGPT</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="rating">
+                        <span class="rating-label">Analisis Teks:</span>
+                        <span class="rating-stars">★★★★★</span>
+                    </div>
+                    <div class="rating">
+                        <span class="rating-label">Kedalaman Konseptual:</span>
+                        <span class="rating-stars">★★★★★</span>
+                    </div>
+                    <div class="rating">
+                        <span class="rating-label">Akurasi Akademik:</span>
+                        <span class="rating-stars">★★★★☆</span>
+                    </div>
+                    <div class="rating">
+                        <span class="rating-label">Kemampuan Sintesis:</span>
+                        <span class="rating-stars">★★★★★</span>
+                    </div>
+                    <div class="rating">
+                        <span class="rating-label">Etika dan Bias:</span>
+                        <span class="rating-stars">★★★★★</span>
+                    </div>
+                    <div class="rating">
+                        <span class="rating-label">Kemudahan Interaksi:</span>
+                        <span class="rating-stars">★★★★☆</span>
+                    </div>
+                </div>
+                
+                <div class="ai-card">
+                    <h3>ChatGPT (OpenAI)</h3>
+                    <div class="pros-cons">
+                        <h4>Kelebihan:</h4>
+                        <ul class="pros">
+                            <li>Sangat responsif dan cepat</li>
+                            <li>Mampu menghasilkan output panjang</li>
+                            <li>Fleksibel dalam berbagai format tulisan</li>
+                            <li>Kuat dalam meringkas dan mengekstraksi informasi</li>
+                        </ul>
+                        
+                        <h4>Keterbatasan:</h4>
+                        <ul class="cons">
+                            <li>Potensi bias informasi</li>
+                            <li>Kadang menghasilkan informasi yang tidak akurat</li>
+                            <li>Kesulitan mempertahankan konteks panjang</li>
+                            <li>Kurang transparan tentang sumber informasi</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="rating">
+                        <span class="rating-label">Analisis Teks:</span>
+                        <span class="rating-stars">★★★★☆</span>
+                    </div>
+                    <div class="rating">
+                        <span class="rating-label">Kedalaman Konseptual:</span>
+                        <span class="rating-stars">★★★★☆</span>
+                    </div>
+                    <div class="rating">
+                        <span class="rating-label">Akurasi Akademik:</span>
+                        <span class="rating-stars">★★★☆☆</span>
+                    </div>
+                    <div class="rating">
+                        <span class="rating-label">Kemampuan Sintesis:</span>
+                        <span class="rating-stars">★★★★☆</span>
+                    </div>
+                    <div class="rating">
+                        <span class="rating-label">Etika dan Bias:</span>
+                        <span class="rating-stars">★★★☆☆</span>
+                    </div>
+                    <div class="rating">
+                        <span class="rating-label">Kemudahan Interaksi:</span>
+                        <span class="rating-stars">★★★★★</span>
+                    </div>
+                </div>
+                
+                <div class="ai-card">
+                    <h3>Gemini (Google)</h3>
+                    <div class="pros-cons">
+                        <h4>Kelebihan:</h4>
+                        <ul class="pros">
+                            <li>Integrasi kuat dengan sumber pengetahuan Google</li>
+                            <li>Kemampuan multimodal (teks, gambar, data)</li>
+                            <li>Akses real-time ke informasi terbaru</li>
+                            <li>Kuat dalam analisis komparatif</li>
+                        </ul>
+                        
+                        <h4>Keterbatasan:</h4>
+                        <ul class="cons">
+                            <li>Masih dalam tahap pengembangan</li>
+                            <li>Variasi kualitas jawaban cukup tinggi</li>
+                            <li>Kurang konsisten dalam kedalaman analisis</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="rating">
+                        <span class="rating-label">Analisis Teks:</span>
+                        <span class="rating-stars">★★★★☆</span>
+                    </div>
+                    <div class="rating">
+                        <span class="rating-label">Kedalaman Konseptual:</span>
+                        <span class="rating-stars">★★★☆☆</span>
+                    </div>
+                    <div class="rating">
+                        <span class="rating-label">Akurasi Akademik:</span>
+                        <span class="rating-stars">★★★★☆</span>
+                    </div>
+                    <div class="rating">
+                        <span class="rating-label">Kemampuan Sintesis:</span>
+                        <span class="rating-stars">★★★☆☆</span>
+                    </div>
+                    <div class="rating">
+                        <span class="rating-label">Etika dan Bias:</span>
+                        <span class="rating-stars">★★★★☆</span>
+                    </div>
+                    <div class="rating">
+                        <span class="rating-label">Kemudahan Interaksi:</span>
+                        <span class="rating-stars">★★★★☆</span>
+                    </div>
+                </div>
+                
+                <div class="ai-card">
+                    <h3>Grok (xAI)</h3>
+                    <div class="pros-cons">
+                        <h4>Kelebihan:</h4>
+                        <ul class="pros">
+                            <li>Akses real-time ke web via platform X</li>
+                            <li>Pendekatan yang lebih bebas untuk topik kontroversial</li>
+                            <li>Gaya komunikasi yang lebih kasual dan humoris</li>
+                            <li>Terintegrasi dengan platform X (Twitter)</li>
+                        </ul>
+                        
+                        <h4>Keterbatasan:</h4>
+                        <ul class="cons">
+                            <li>Memerlukan langganan X Premium+</li>
+                            <li>Kualitas analisis akademis masih bervariasi</li>
+                            <li>Pendekatan yang lebih bebas bisa kurang tepat untuk konteks akademis formal</li>
+                            <li>Model yang relatif baru dengan basis pengetahuan yang masih berkembang</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="rating">
+                        <span class="rating-label">Analisis Teks:</span>
+                        <span class="rating-stars">★★★☆☆</span>
+                    </div>
+                    <div class="rating">
+                        <span class="rating-label">Kedalaman Konseptual:</span>
+                        <span class="rating-stars">★★★☆☆</span>
+                    </div>
+                    <div class="rating">
+                        <span class="rating-label">Akurasi Akademik:</span>
+                        <span class="rating-stars">★★★☆☆</span>
+                    </div>
+                    <div class="rating">
+                        <span class="rating-label">Kemampuan Sintesis:</span>
+                        <span class="rating-stars">★★★☆☆</span>
+                    </div>
+                    <div class="rating">
+                        <span class="rating-label">Etika dan Bias:</span>
+                        <span class="rating-stars">★★★☆☆</span>
+                    </div>
+                    <div class="rating">
+                        <span class="rating-label">Kemudahan Interaksi:</span>
+                        <span class="rating-stars">★★★★☆</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🔄 AI Alternatif yang Bisa Dipertimbangkan</h2>
+            
+            <div class="ai-comparison">
+                <div class="ai-card">
+                    <h3>DeepSeek</h3>
+                    <div class="pros-cons">
+                        <h4>Kelebihan:</h4>
+                        <ul class="pros">
+                            <li>Model AI open-source China</li>
+                            <li>Kuat dalam pemrosesan bahasa multi-bahasa</li>
+                            <li>Performa tinggi dalam tugas-tugas akademis</li>
+                            <li>Komputasi efisien</li>
+                        </ul>
+                        
+                        <h4>Keterbatasan:</h4>
+                        <ul class="cons">
+                            <li>Kurang familiar di ranah akademik internasional</li>
+                            <li>Dokumentasi terbatas dalam bahasa Inggris</li>
+                            <li>Potensi bias geografis/linguistik</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Kesesuaian Workshop:</strong></p>
+                        <ul>
+                            <li>Cocok untuk analisis teks multi-bahasa</li>
+                            <li>Berpotensi membantu mahasiswa dengan latar belakang Asia</li>
+                            <li>Memerlukan eksplorasi lebih lanjut</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="ai-card">
+                    <h3>Perplexity</h3>
+                    <div class="pros-cons">
+                        <h4>Kelebihan:</h4>
+                        <ul class="pros">
+                            <li>Mesin pencari berbasis AI dengan kutipan</li>
+                            <li>Kemampuan penelusuran sumber akademik</li>
+                            <li>Menghasilkan jawaban dengan referensi</li>
+                            <li>Update informasi real-time</li>
+                        </ul>
+                        
+                        <h4>Keterbatasan:</h4>
+                        <ul class="cons">
+                            <li>Fokus pada pencarian, bukan analisis mendalam</li>
+                            <li>Kualitas jawaban bergantung pada sumber</li>
+                            <li>Memerlukan langganan berbayar untuk fitur penuh</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Kesesuaian Workshop:</strong></p>
+                        <ul>
+                            <li>Lebih tepat sebagai alat pendukung pencarian</li>
+                            <li>Berguna untuk verifikasi dan pelacakan sumber</li>
+                            <li>Tidak ideal sebagai primary AI untuk analisis konseptual</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🎯 Rekomendasi Strategi Penggunaan AI</h2>
+            
+            <div class="recommendation">
+                <h3>Skenario Penggunaan Optimal</h3>
+                
+                <h4>1. Utama: Claude</h4>
+                <ul>
+                    <li>Prioritaskan untuk analisis kritis</li>
+                    <li>Gunakan untuk tahap sintesis konseptual</li>
+                    <li>Andalkan untuk keakuratan akademik</li>
+                </ul>
+                
+                <h4>2. Pendamping: ChatGPT</h4>
+                <ul>
+                    <li>Gunakan untuk ekstraksi awal</li>
+                    <li>Meringkas dan memetakan konsep</li>
+                    <li>Menghasilkan draft struktural</li>
+                </ul>
+                
+                <h4>3. Cadangan: Gemini</h4>
+                <ul>
+                    <li>Verifikasi silang informasi</li>
+                    <li>Akses sumber tambahan</li>
+                    <li>Analisis komparatif lintas sumber</li>
+                </ul>
+                
+                <h4>4. Alternatif: Grok</h4>
+                <ul>
+                    <li>Perspektif alternatif pada topik kontroversial</li>
+                    <li>Eksplorasi awal dengan gaya komunikasi berbeda</li>
+                    <li>Akses informasi terkini melalui platform X</li>
+                </ul>
+            </div>
+            
+            <h3>Protokol Penggunaan Bertahap</h3>
+            <ol>
+                <li><strong>Ekstraksi Awal (ChatGPT)</strong> - Pemetaan struktur teks dan konsep utama</li>
+                <li><strong>Analisis Mendalam (Claude)</strong> - Eksplorasi konseptual dan sintesis</li>
+                <li><strong>Verifikasi dan Perluasan (Gemini)</strong> - Pengecekan silang dan perluasan konteks</li>
+                <li><strong>Refleksi Manual (Mentor/Mahasiswa)</strong> - Integrasi ke dalam pemahaman personal</li>
+            </ol>
+            
+            <div class="important-note">
+                <h3>Catatan Penting tentang Penggunaan AI</h3>
+                <ul>
+                    <li><strong>Verifikasi Mandiri:</strong> Selalu evaluasi output AI secara kritis</li>
+                    <li><strong>Penilaian Informasi:</strong> AI dapat salah atau bias - gunakan penilaian kritis Anda</li>
+                    <li><strong>Peran Sebagai Alat:</strong> AI adalah alat bantu, bukan pengganti berpikir kritis</li>
+                    <li><strong>Versi Pro vs Gratis:</strong> Versi berbayar sering menawarkan kapasitas konteks lebih besar dan fitur lebih lengkap, tetapi versi gratis tetap bermanfaat</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📚 Kesimpulan</h2>
+            <p>Meskipun kami merekomendasikan Claude sebagai AI utama untuk workshop ini berdasarkan kelebihan spesifiknya dalam literasi akademik, kami menyadari bahwa setiap peserta mungkin memiliki preferensi atau akses yang berbeda. Yang terpenting adalah memahami kekuatan dan keterbatasan AI yang Anda gunakan dan mengembangkan strategi bertanya yang efektif.</p>
+            
+            <p>Sepanjang workshop, kami akan membantu Anda mengoptimalkan interaksi dengan AI pilihan Anda untuk memaksimalkan pemahaman teks akademis. Ingatlah bahwa AI adalah alat bantu dalam proses belajar—bukan pengganti—berpikir kritis dan refleksi personal.</p>
+            
+            <a href="index.html" class="back-to-home">Kembali ke Halaman Utama</a>
+        </div>
+        
+        <div class="footer">
+            <p>Workshop Literasi Akademik Berbantuan AI &copy; 2025</p>
+            <p>Kontak: inyiakrm@gmail.com | WhatsApp: 082225319973</p>
+        </div>
+    </div>
+</body>
+</html>

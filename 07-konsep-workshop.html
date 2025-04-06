@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konsep Workshop Literasi Akademik Berbantuan AI</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.2em;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: var(--secondary);
+        }
+        
+        h4 {
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            margin-top: 10px;
+            font-weight: normal;
+        }
+        
+        .section {
+            padding: 20px 30px;
+        }
+        
+        .highlight-box {
+            background-color: var(--light);
+            border-left: 5px solid var(--secondary);
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .important-note {
+            background-color: #ffe6e6;
+            border-left: 5px solid var(--accent);
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .back-to-home {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .back-to-home:hover {
+            background-color: var(--primary);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9em;
+        }
+        
+        ol li, ul li {
+            margin-bottom: 15px;
+        }
+        
+        strong {
+            color: var(--dark);
+        }
+        
+        .challenges-list {
+            margin-top: 15px;
+            margin-bottom: 25px;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div style="text-align: center; width: 100%;">
+                <h1>KONSEP WORKSHOP LITERASI AKADEMIK</h1>
+                <div class="subtitle">Memanfaatkan Kecerdasan Buatan untuk Pemahaman Teks Teoretis</div>
+            </div>
+        </header>
+        
+        <div class="section">
+            <h2>📚 Tantangan Literasi Akademik Mahasiswa</h2>
+            
+            <p>Mahasiswa pascasarjana ilmu-ilmu sosial dan humaniora di perguruan tinggi Indonesia (terutama perguruan tinggi Islam) menghadapi tantangan berat ketika mengikuti mata kuliah teoretis berbasis teks. Di antara tantangan tersebut adalah:</p>
+            
+            <ol class="challenges-list">
+                <li>
+                    <strong>Kesulitan membaca teks teoretis</strong> - Mahasiswa sering kesulitan memahami struktur dasar teks akademis, mengidentifikasi konsep utama, dan mengekstraksi teori yang relevan dengan kebutuhan penelitian mereka.
+                </li>
+                
+                <li>
+                    <strong>Beban bacaan yang berat</strong> - Rata-rata setiap mahasiswa dihadapkan pada tugas membaca ratusan halaman per semester untuk tugas-tugas perkuliahan. minimal 100.000-200.000 kata per semester. Jumlah itu hanya untuk satu tugas individual setiap mata kuliah.
+                </li>
+                
+                <li>
+                    <strong>Keterbatasan pemahaman konseptual</strong> - Mahasiswa masih kurang akrab dengan konsep-konsep ilmu sosial dan humaniora. Ini membuat mahasiswa butuh waktu dan energi ekstra untuk menguasai perspektif teoretis yang ada di dalam teks dan mereka perlukan untuk kepentingan mata kuliah atau penelitian.
+                </li>
+                
+                <li>
+                    <strong>Kesulitan sintesis konseptual</strong> - Mahasiswa umumnya belum mampu menghubungkan berbagai konsep dan teori atau untuk melakukan sintesis. Ini berdampak pada lemahnya daya analisis dalam penelitian maupun penulisan karya ilmiah mereka.
+                </li>
+            </ol>
+        </div>
+        
+        <div class="section">
+            <h2>🤖 Potensi dan Tantangan AI dalam Literasi Akademik</h2>
+            
+            <p>Kemunculan teknologi AI seperti chatbot generatif membuka peluang baru dalam mengatasi tantangan-tantangan tersebut. Namun, pemanfaatan teknologi ini dalam konteks akademik masih menghadapi beberapa kendala:</p>
+            
+            <div class="highlight-box">
+                <ol>
+                    <li>
+                        <strong>Penggunaan AI yang belum optimal</strong> - Mahasiswa cenderung tergoda memanfaatkan AI secara instan untuk "membuatkan tugas" daripada sebagai mitra dalam proses berpikir. AI lebih sering diposisikan sebagai "<em>second brain</em>" yang menggantikan proses berpikir kritis, bukan sebagai "kaca pembesar" yang memperkuat kapasitas kognitif mahasiswa.
+                    </li>
+                    
+                    <li>
+                        <strong>Keterbatasan keterampilan bertanya</strong> - Keterbatasan teknik bertanya secara sistematis dan bertingkat sesuai dengan karakter AI sebagai mesin juga menjadi kendala tersendiri. Belum dikuasainya teknik bertanya yang sistematis dan bertingkat kepada AI, mulai dari pertanyaan deskriptif hingga pertanyaan analitis dan kreatif, membatasi potensi AI sebagai alat bantu pembelajaran.
+                    </li>
+                    
+                    <li>
+                        <strong>Kebutuhan pendampingan manusia</strong> - Meski AI dimanfaatkan secara optimal hingga tingkat analitis, banyak mahasiswa masih kesulitan mencerna jawaban AI tanpa mediasi dari mentor manusia. Ini menunjukkan bahwa pemanfaatan AI dalam literasi akademik baru dapat optimal jika terintegrasi dengan pendampingan langsung.
+                    </li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>💡 Apa yang Ditawarkan Workshop Ini?</h2>
+            
+            <h3>Pendekatan Integratif AI dan Pendampingan Akademis</h3>
+            
+            <p>Workshop Literasi Akademik Berbantuan AI ini menawarkan pendekatan inovatif yang menjembatani kesenjangan antara teknologi kecerdasan buatan dan kebutuhan akademis mahasiswa pascasarjana. Dalam menghadapi kompleksitas teks-teks teoretis, mahasiswa sering kali kesulitan mengidentifikasi konsep utama, mensintesis gagasan, dan mengintegrasikan teori ke dalam penelitian mereka. Workshop ini hadir sebagai solusi yang mengintegrasikan teknologi AI sebagai alat bantu dalam proses pembacaan dan pemahaman teks akademis, dengan tetap mempertahankan pendampingan mentor sebagai elemen krusial. Pendekatan ini memposisikan AI bukan sebagai "pengganti" proses berpikir, melainkan sebagai "kaca pembesar" yang memperkuat kapasitas kognitif mahasiswa dalam menghadapi tantangan literasi akademik.</p>
+            
+            <h3>Metode Terstruktur dengan Keseimbangan Teknologi dan Interaksi Manusia</h3>
+            
+            <p>Keunikan workshop ini terletak pada metode yang menggabungkan teknologi dan interaksi manusia secara berimbang. Melalui serangkaian pertemuan terstruktur, mahasiswa akan dipandu untuk mengembangkan keterampilan bertanya yang sistematis dan bertingkat kepada AI—mulai dari pertanyaan deskriptif hingga pertanyaan analitis dan kreatif. Proses ini didampingi oleh mentor yang berperan sebagai mitra diskusi, memediasi interaksi antara mahasiswa dan output AI, serta membantu mahasiswa mengembangkan pemahaman kritis terhadap teks-teks akademis. Workshop ini juga menekankan aspek reflektif dalam proses belajar, di mana mahasiswa diajak untuk terus mengevaluasi proses pemahaman mereka dan mengembangkan strategi meta-kognitif yang efektif.</p>
+            
+            <h3>Pemberdayaan Kemandirian Intelektual di Era Digital</h3>
+            
+            <p>Tujuan utama workshop ini bukanlah sekedar meningkatkan efisiensi dalam memahami teks, tetapi juga membangun kemandirian intelektual mahasiswa. Dengan menguasai teknik-teknik yang ditawarkan dalam workshop ini, mahasiswa diharapkan dapat mengatasi beban bacaan yang berat, meningkatkan keterampilan analitis mereka, dan mengembangkan kemampuan sintesis konseptual yang kuat. Lebih dari itu, workshop ini menanamkan etika penggunaan AI dalam konteks akademik, mendorong mahasiswa untuk memanfaatkan teknologi sebagai pendukung—bukan pengganti—proses berpikir kritis mereka. Melalui kombinasi tepat antara pemanfaatan AI dan pendampingan manusia, workshop ini menyediakan fondasi kokoh bagi mahasiswa untuk mengembangkan literasi akademik yang berkelanjutan di era digital.</p>
+            
+            <div class="important-note">
+                <p><strong>Pesan Kunci:</strong> AI adalah kaca pembesar yang memperkuat kapasitas kognitif, bukan pengganti proses berpikir kritis. Workshop ini mengajarkan keterampilan meta-kognitif yang diperlukan untuk berinteraksi produktif dengan AI dalam konteks akademik.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <a href="index.html" class="back-to-home">Kembali ke Halaman Utama</a>
+        </div>
+        
+        <div class="footer">
+            <p>Workshop Literasi Akademik Berbantuan AI &copy; 2025</p>
+            <p>Kontak: inyiakrm@gmail.com | WhatsApp: 082225319973</p>
+        </div>
+    </div>
+</body>
+</html>
